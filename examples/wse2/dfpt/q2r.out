@@ -1,0 +1,53 @@
+TACC:  Starting up job 5554026 
+TACC:  Starting parallel tasks... 
+
+     Program Q2R v.6.2 starts on 18Apr2020 at  4:31: 5 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on    64 processors
+
+     MPI processes distributed on     1 nodes
+     K-points division:     npool     =       4
+     R & G space division:  proc/nbgrp/npool/nimage =      16
+
+     reading grid info from file WSe2.dyn0    
+  reading force constants from file WSe2.dyn1
+ macroscopic fields = T
+   6.65096  -0.00000   0.00000
+  -0.00000   6.65096   0.00000
+   0.00000   0.00000   1.46715
+  na=            1
+  -1.25572   0.00000   0.00000
+   0.00000  -1.25572   0.00000
+   0.00000   0.00000  -0.12173
+  na=            2
+   0.59290   0.00000   0.00000
+   0.00000   0.59290   0.00000
+   0.00000   0.00000   0.05816
+  na=            3
+   0.59290   0.00000   0.00000
+   0.00000   0.59290   0.00000
+   0.00000   0.00000   0.05816
+  nqs=            1
+ q=   0.00000000  0.00000000  0.00000000
+
+      q-space grid ok, #points =    1
+
+      fft-check success (sum of imaginary terms < 10^-12)
+ 
+     Q2R          :     0.05s CPU         0.97s WALL
+
+ 
+   This run was terminated on:   4:31: 5  18Apr2020            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
+TACC:  Shutdown complete. Exiting. 
