@@ -24,12 +24,12 @@ class ModulationTask:
     def generate_modulations(self):
         '''Generate the modulations.'''
 
-        print 'Generating modulated structures...'
+        print ('Generating modulated structures...')
 
         phonon = phonopy.load(self.phonopy_yaml)
 
         Na = 3
-        print 'WARNING Na is hard coded'
+        print ('WARNING Na is hard coded')
 
         # [q-point, band index (int), amplitude (float), phase (float)]
         qpt = [0., 0., 0.] # Note: fix qpt

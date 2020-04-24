@@ -122,7 +122,7 @@ class FrozPhon:
         freq = ang_freq / 1.e12 / (2 * np.pi) 
         self.frequency = freq
 
-        print 'Finite difference phonon frequency: {} THz'.format(freq)
+        print ('Finite difference phonon frequency: {} THz').format(freq)
 
     def compute_diagonal_coupling(self):
         '''The diagonal part of the electron-phonon coupling is given by:'''
