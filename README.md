@@ -12,7 +12,7 @@ For additional details please see the readme in ~frozphonpy/examples/wse2/.
 
 # Requirements
 The following software and modules are required to use BGWpy.
-1. python 2.7 required (Python 3 not supported at the moment)
+1. python 3+ required (Python 2.7 no longer supported)
 1. BGWpy (https://github.com/BerkeleyGW/BGWpy)
 3. Phonopy (https://github.com/BerkeleyGW/BGWpy)
 
