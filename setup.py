@@ -8,6 +8,4 @@ setup(name='frozphonpy',
       author_email='',
       license='MIT',
       packages=['frozphonpy'],
-      install_requires = ['phonopy', 'monty==1.0.4'], #, 'repo @ https://github.com/BerkeleyGW/BGWpy/tarball/master#egg=BGWpy'],
-      dependency_links = ['git+https://github.com/BerkeleyGW/BGWpy/tarball/master#egg=BGWpy'],
       zip_safe=False)
