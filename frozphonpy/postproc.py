@@ -3,7 +3,8 @@ import os
 import numpy as np
 import yaml
 from os.path import join as pjoin
-from BGWpy.external import xmltodict
+import xmltodict
+#from BGWpy.external import xmldict
 
 
 class FrozPhon:
@@ -38,7 +39,7 @@ class FrozPhon:
     def parse_xml(self, xml_file):
         '''Parses an xml file to find total energy and eigenvalues.'''
 
-        with open(xml_file, 'r') as f:
+        with open(xml_file, 'rb') as f:
             datafile = xmltodict.parse(f)
 
         etot = float(datafile['qes:espresso']['output']['total_energy']['etot'])
@@ -55,8 +56,8 @@ class FrozPhon:
 
         for ik in range(nk):
 
-            kpts[ik, :] = np.array(map(float, ks_energies[ik]['k_point']['#text'].split()))
-            eigs[:, ik] = np.array(map(float, ks_energies[ik]['eigenvalues']['#text'].split()))
+            kpts[ik, :] = np.array(list(map(float, ks_energies[ik]['k_point']['#text'].split())))
+            eigs[:, ik] = np.array(list(map(float, ks_energies[ik]['eigenvalues']['#text'].split())))
 
         return etot, eigs, kpts
 
@@ -122,7 +123,7 @@ class FrozPhon:
         freq = ang_freq / 1.e12 / (2 * np.pi) 
         self.frequency = freq
 
-        print ('Finite difference phonon frequency: {} THz').format(freq)
+        print ('Finite difference phonon frequency: {} THz'.format(freq))
 
     def compute_diagonal_coupling(self):
         '''The diagonal part of the electron-phonon coupling is given by:'''
