@@ -43,9 +43,16 @@ class FrozPhon:
             datafile = xmltodict.parse(f)
 
         etot = float(datafile['qes:espresso']['output']['total_energy']['etot'])
-        
+
         nk = int(datafile['qes:espresso']['output']['band_structure']['nks'])
-        nbnd = int(datafile['qes:espresso']['output']['band_structure']['nbnd'])
+        spin = datafile['qes:espresso']['output']['band_structure']['lsda']
+
+        if spin == 'true':
+            nbnd = int(datafile['qes:espresso']['output']['band_structure']['nbnd_up'])
+            nbnd = nbnd*2
+        else:
+            nbnd = int(datafile['qes:espresso']['output']['band_structure']['nbnd'])
+
         self.nk = nk
         self.nbnd = nbnd
 
@@ -54,10 +61,13 @@ class FrozPhon:
 
         ks_energies = datafile['qes:espresso']['output']['band_structure']['ks_energies']
 
-        for ik in range(nk):
-
-            kpts[ik, :] = np.array(list(map(float, ks_energies[ik]['k_point']['#text'].split())))
-            eigs[:, ik] = np.array(list(map(float, ks_energies[ik]['eigenvalues']['#text'].split())))
+        if nk == 1:
+            kpts[0, :] = np.array(list(map(float, ks_energies['k_point']['#text'].split())))
+            eigs[:, 0] = np.array(list(map(float, ks_energies['eigenvalues']['#text'].split())))
+        else:
+            for ik in range(nk):
+                kpts[ik, :] = np.array(list(map(float, ks_energies[ik]['k_point']['#text'].split())))
+                eigs[:, ik] = np.array(list(map(float, ks_energies[ik]['eigenvalues']['#text'].split())))
 
         return etot, eigs, kpts
 
